@@ -1,0 +1,14 @@
+{% extends 'base1.html' %}
+{% block title%}
+    Signup
+{% endblock %}
+{% block content %}
+    <p class="display-4 mx-auto">Sign up</p>
+    <div class="form-row">
+      <form class="form-group mx-auto" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+        <button class="form-control btn btn-info" type="submit">Sign up</button>
+      </form>
+    </div>
+{% endblock %}
