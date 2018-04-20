@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import login, authenticate
-from home.forms import SignUpForm
+from home.forms import RegisterForm
 
 
 def index(request):
@@ -9,7 +9,7 @@ def index(request):
 
 
 def base(request):
-    return render(request, 'base.html')
+    return render(request, 'base1.html')
 
 
 # def signup(request):
@@ -28,17 +28,17 @@ def base(request):
 #
 
 
-def signup(request):
+def register(request):
     if request.method == 'POST':
-        form = SignUpForm(request.POST)
+        form = RegisterForm(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username = username, password = raw_password)
             login(request, user)
-        return redirect('index')
+        return redirect(base)
     else:
-        form = SignUpForm()
-    return render(request, 'signup.html', {'form': form})
+        form = RegisterForm()
+        return render(request, 'signup.html', {'form': form})
 

@@ -1,14 +1,36 @@
-{% extends 'base1.html' %}
-{% block title%}
-    Signup
+{#{% extends 'base.html' %}#}
+{#{% block title%}#}
+{#    Signup#}
+{#{% endblock %}#}
+{#{% block content %}#}
+{#    <p class="display-4 mx-auto">Sign up</p>#}
+{#    <div class="form-row">#}
+{#      <form class="form-group mx-auto" method="post">#}
+{#            {% csrf_token %}#}
+{#            {{ form.as_p }}#}
+{#        <button class="form-control btn btn-info" type="submit">Sign up</button>#}
+{#      </form>pi#}
+{#    </div>#}
+{#{% endblock %}#}
+{% extends 'admin/login.html' %}
+{% block branding %}
+    <h1>
+        <a href="">User Registration</a>
+    </h1>
 {% endblock %}
 {% block content %}
-    <p class="display-4 mx-auto">Sign up</p>
-    <div class="form-row">
-      <form class="form-group mx-auto" method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-        <button class="form-control btn btn-info" type="submit">Sign up</button>
+      <form method="post">
+          {% csrf_token %}
+          {% for field in form %}
+              <div class="form-row">
+                  {{ field.label_tag }}
+                  <br/>
+                  {{ field }}
+              </div>
+          {% endfor %}
+          <label>&nbsp;</label>
+          <input type="submit" value="Sign up">
       </form>
-    </div>
 {% endblock %}
+
+

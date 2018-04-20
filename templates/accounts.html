@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% block content %}
+        {% if user.is_authenticated %}
+            <p>Hi {{ user.get_username }}</p>
+            <p>staff:- {{ user.is_staff }}</p>
+            <p>active:- {{ user.is_active }}</p>
+            <p>superuser:- {{ user.is_superuser }}</p>
+            <p>{{ user.get_user_fullname}}</p>
+            <p>{{ user.groups_all.0.name }}</p>
+            <p>{{ user.email}}</p>
+            <p>{{ user.last_login}}</p>
+        {% else %}
+            <p>You are not logged in</p>
+            <a href="{% url 'login' %}">Login</a>
+        {% endif %}
+    {% endblock %}
+</body>
+</html>

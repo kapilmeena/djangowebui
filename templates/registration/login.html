@@ -1,0 +1,24 @@
+<!-- templates/registration/login.html -->
+{% extends 'admin/login.html' %}
+{% block branding %}
+    <h1>
+        <a href="">User Login</a>
+    </h1>
+{% endblock %}
+{% block content %}
+<form method="post">
+  {% csrf_token %}
+{#  {{ form.as_p }}#}
+    {% for field in form %}
+{#        {{ field.errors }}#}
+        <div class="form-row">
+        {{ field.label_tag }}
+            {{ field }}
+        </div>
+    {% endfor %}
+    <div class="submit-row">
+        <label>&nbsp;</label>
+        <input type="submit" value="Log In" >
+    </div>
+</form>
+{% endblock content %}
