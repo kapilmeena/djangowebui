@@ -9,4 +9,5 @@ urlpatterns = [
     path('', views.index),
     path('signup/', views.register),
     path('base/', views.base),
+    path('send/', views.sendSimpleEmail),
 ]

@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from django.contrib.auth import login, authenticate
 from home.forms import RegisterForm
+
+from django.core.mail import send_mail, EmailMessage
+from django.http import HttpResponse
 
 
 def index(request):
@@ -42,3 +44,20 @@ def register(request):
         form = RegisterForm()
         return render(request, 'signup.html', {'form': form})
 
+
+# def sendSimpleEmail(request):
+#     res = send_mail("send from django framework",
+#                     "emails body here",
+#                     "kapil128@hotmail.com",
+#                     ["kapilmeena8959@gmail.com", "kapil128@hotmail.com"]
+#                     )
+#     return HttpResponse('%s'%res)
+
+def sendSimpleEmail(request):
+    res = EmailMessage("send from django framework using EmailMessage()",
+                    "emails body here new with disrted cleared again backend",
+                    "kapil128@hotmail.com",
+                    ["kapilmeena8959@gmail.com", "kapil128@hotmail.com"]
+                    )
+
+    return HttpResponse('%s'%res.send())
