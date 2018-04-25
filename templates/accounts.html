@@ -15,6 +15,9 @@
             <p>{{ user.groups_all.0.name }}</p>
             <p>{{ user.email}}</p>
             <p>{{ user.last_login}}</p>
+{#            <p>{{ request.path }}</p>#}
+{#            <p>{{ request.get_full_path }}</p>#}
+{#            <p>{{ request.build_absolute_uri }}</p>#}
         {% else %}
             <p>You are not logged in</p>
             <a href="{% url 'login' %}">Login</a>

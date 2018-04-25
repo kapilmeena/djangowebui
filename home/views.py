@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from home.forms import RegisterForm
+from django.contrib.auth.decorators import login_required
 
 from django.core.mail import send_mail, EmailMessage
 from django.http import HttpResponse
@@ -29,7 +30,6 @@ def base(request):
 #     return render(request, 'signup.html', {'form': form})
 #
 
-
 def register(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)
@@ -53,6 +53,8 @@ def register(request):
 #                     )
 #     return HttpResponse('%s'%res)
 
+# @login_required(login_url='/accounts/login/')
+@login_required
 def sendSimpleEmail(request):
     res = EmailMessage("send from django framework using EmailMessage()",
                     "emails body here new with disrted cleared again backend",
