@@ -26,7 +26,7 @@ SECRET_KEY = '7y18^*mqtu#6ws8_6a#y%x#q6o@kup*ds!6wzb+x+6ps!c$w^7'
 # DEBUG = True
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["https://onlineocr.herokuapp.com/","127.0.0.1"]
 
 
 # Application definition
@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home',
-    'page',
+    'pages',
     'accounts'
 ]
 
@@ -136,3 +136,9 @@ EMAIL_HOST_PASSWORD = 'kapil12580'
 EMAIL_PORT = 587
 
 EMAIL_USE_TLS = True
+
+
+import dj_database_url
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
+DATABASES['default']['CONN_MAX_AGE'] = 500

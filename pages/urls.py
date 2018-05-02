@@ -6,4 +6,6 @@ urlpatterns = [
     # path('polls/', include('polls.urls')),
     # path('admin/', admin.site.urls),
     path('', views.index),
+    path('products/', views.products),
+    path('price/', views.price),
 ]

@@ -16,7 +16,7 @@
     <content url="file://$MODULE_DIR$/..">
       <excludeFolder url="file://$MODULE_DIR$/pythonvenv" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.6 (MyDjangoWebsite)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.6 (djangowebui)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TemplatesService">
